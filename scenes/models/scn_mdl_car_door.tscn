@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d2l26yyjox61v"]
+
+[ext_resource type="PackedScene" uid="uid://bdvxfgqbqqfm7" path="res://models/.fbx_mdl_car_door.fbx" id="1_4bjq5"]
+[ext_resource type="Texture2D" uid="uid://b867fxcp552sg" path="res://aseprite/spr_car_door.png" id="2_2u0wk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5e6a0"]
+transparency = 1
+albedo_texture = ExtResource("2_2u0wk")
+metallic = 1.0
+metallic_specular = 0.0
+texture_filter = 0
+
+[node name="_fbx_mdl_car_door" unique_id=426810238 instance=ExtResource("1_4bjq5")]
+
+[node name="mdl_car_door" parent="." index="0" unique_id=1133056198]
+surface_material_override/0 = SubResource("StandardMaterial3D_5e6a0")

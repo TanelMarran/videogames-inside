@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bosjbra0esg8d"]
+
+[ext_resource type="Script" uid="uid://drnfsf30r4hx3" path="res://scenes/objects/looper/looper.gd" id="1_vodd8"]
+
+[node name="Looper" type="Node3D" unique_id=1023053257]
+script = ExtResource("1_vodd8")
+repeat_distance = Vector3(0, 0, 0)
+repeat_count = 0
