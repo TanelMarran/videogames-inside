@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2l26yyjox61v" path="res://scenes/models/scn_mdl_car_door.tscn" id="1_lhjgr"]
 [ext_resource type="PackedScene" uid="uid://bosjbra0esg8d" path="res://scenes/objects/looper/looper.tscn" id="2_6hfjh"]
+[ext_resource type="PackedScene" uid="uid://bsj8klfj6japd" path="res://models/stage.blend" id="3_cvhj7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s2wkp"]
 size = Vector2(5.5, 5.5)
@@ -13,7 +14,7 @@ metallic_specular = 0.0
 [sub_resource type="Environment" id="Environment_lhjgr"]
 background_mode = 1
 ambient_light_source = 2
-ambient_light_color = Color(0.0110632265, 0.11441038, 0.17247805, 1)
+ambient_light_color = Color(0.06959755, 0.12625077, 0.25583503, 1)
 ambient_light_energy = 7.51
 
 [sub_resource type="Gradient" id="Gradient_lhjgr"]
@@ -74,19 +75,8 @@ transform = Transform3D(1.4382888, -0.3235249, 0.51774806, 0, 1.3250751, 0.82799
 fov = 48.81357
 
 [node name="CameraCloseup" type="Camera3D" parent="." unique_id=611371490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031469345, 0.42920965, 2.0736053)
 current = true
-fov = 48.81357
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2025757468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38676077, 0.6642982, 2.0585332)
-light_color = Color(0.756, 0.8592, 0.9, 1)
-light_energy = 1.31
-light_size = 0.665
-shadow_enabled = true
-shadow_blur = 0.0
-omni_range = 2.0193825
-omni_attenuation = 0.355
+fov = 50.0
 
 [node name="_fbx_mdl_car_door" parent="." unique_id=426810238 instance=ExtResource("1_lhjgr")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.8670913, -0.23348343, 1.3387406)
@@ -94,39 +84,21 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.8670913, -0.23348343
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328964358]
 environment = SubResource("Environment_lhjgr")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1117521961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3184489, 1.5581529, -5.0826263)
-light_color = Color(6.930828e-06, 0.73073894, 0.8254629, 1)
-light_energy = 16.0
-light_indirect_energy = 0.0
-light_size = 0.136
-omni_range = 9.559
-omni_attenuation = 1.94
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=2132193159]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26838765, 4.058869, 1.4100826)
-light_color = Color(0.9535741, 0.777503, 0.40217534, 1)
-light_energy = 160.0
-light_indirect_energy = 16.0
-shadow_enabled = true
-omni_range = 12.564
-omni_attenuation = 2.317
-
 [node name="Looper2" parent="." unique_id=1023053257 instance=ExtResource("2_6hfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9320526, 1.3147614, -1.6834755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9320526, 1.3147614, 6.486392)
 repeat_distance = Vector3(1.865, 0, 0)
 repeat_count = 7
 scroll_speed = 0.265
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Looper2" unique_id=2058666704]
-transform = Transform3D(0.33403268, 0, 0, 0, 0.4859848, 0, 0, 0, 2.5505867, -1.2682763, 0.9277389, -2.5816336)
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Looper2" unique_id=2058666704]
+transform = Transform3D(0.33403268, 0, 0, 0, 0.48598486, 0, 0, 0, 2.5505867, -1.2682762, 0.9277389, -1.0698161)
 visible = false
 mesh = SubResource("QuadMesh_s2wkp")
 surface_material_override/0 = SubResource("StandardMaterial3D_6hfjh")
 metadata/reference = true
 
 [node name="Looper" parent="." unique_id=543775234 instance=ExtResource("2_6hfjh")]
-transform = Transform3D(2.085, 0, 0, 0, 2.085, 0, 0, 0, 2.085, -9.361689, 0, 0)
+transform = Transform3D(2.085, 0, 0, 0, 2.085, 0, 0, 0, 2.085, -9.361689, 0, 17.034174)
 repeat_distance = Vector3(1.26, 0, 0)
 repeat_count = 6
 scroll_speed = 1.24
@@ -136,3 +108,31 @@ transform = Transform3D(0.227, 0, 0, 0, -1.0315887e-08, 0.284, 0, -0.23599999, -
 visible = false
 mesh = SubResource("QuadMesh_s2wkp")
 surface_material_override/0 = SubResource("StandardMaterial3D_lhjgr")
+metadata/reference = true
+
+[node name="Looper3" parent="." unique_id=294893303 instance=ExtResource("2_6hfjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.013945, 0.43412828, -3.9557595)
+repeat_distance = Vector3(5.395, -0.015, 0)
+repeat_count = 5
+scroll_speed = 7.16
+
+[node name="stage" parent="Looper3" unique_id=822393378 instance=ExtResource("3_cvhj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1714334, 0.19049788, 0.40676236)
+visible = false
+metadata/reference = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=116429321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7602148, 1.0718417, -6.9614925)
+light_color = Color(0.8762147, 0.23946747, 0.22816241, 1)
+light_energy = 2.253
+light_indirect_energy = 1.676
+omni_range = 11.014849
+omni_attenuation = 0.437
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=958599450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7653608, -0.26330185, -8.612198)
+light_color = Color(0.83971393, 0.6628909, 0.48255563, 1)
+light_energy = 2.197
+light_indirect_energy = 1.676
+omni_range = 5.539
+omni_attenuation = 1.376
