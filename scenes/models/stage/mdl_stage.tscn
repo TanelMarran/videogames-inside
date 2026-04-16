@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://31efnd0ryv8a"]
+
+[ext_resource type="PackedScene" uid="uid://c8givuqvy13io" path="res://models/scene/mdl_stage.fbx_Collection_1.fbx" id="1_ikcxo"]
+[ext_resource type="Material" uid="uid://bvxxr8wwa201s" path="res://scenes/models/stage/mat_stage1.tres" id="2_m7n6h"]
+
+[node name="Stage" unique_id=1031603477 instance=ExtResource("1_ikcxo")]
+
+[node name="Empty_001" parent="." index="0" unique_id=1523815557]
+surface_material_override/0 = ExtResource("2_m7n6h")
+
+[node name="Empty_004" parent="." index="1" unique_id=960427604]
+surface_material_override/0 = ExtResource("2_m7n6h")
+
+[node name="Empty_005" parent="." index="2" unique_id=883992261]
+surface_material_override/0 = ExtResource("2_m7n6h")
+
+[node name="Empty_006" parent="." index="3" unique_id=956342240]
+surface_material_override/0 = ExtResource("2_m7n6h")

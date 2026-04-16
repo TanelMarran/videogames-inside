@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bvxxr8wwa201s"]
+
+[ext_resource type="Texture2D" uid="uid://bx8rfdlkv3gk4" path="res://sprites/spr_background.JPG" id="1_a05xm"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_a05xm")
