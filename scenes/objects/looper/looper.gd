@@ -1,7 +1,7 @@
-@tool 
+@tool
 extends Node3D
 
-@export var repeat_distance: Vector3 = Vector3(1, 0, 0)
+@export var repeat_vector: Vector3 = Vector3(1, 0, 0)
 @export var repeat_count: int = 3:
 	set(value):
 		repeat_count = value
@@ -14,7 +14,7 @@ var _anchors: Array[Node3D] = []
 var _reference_nodes: Array[Node3D] =  []
 var _copy_nodes: Array[Node3D] = []
 
-var _counter: float = 0
+var _distance_scrolled: float = 0
 
 var valid_copy_of_values: Array[String] = []:
 	get():
@@ -76,20 +76,21 @@ func _create_anchors() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_counter += delta
-	var max_vector: Vector3 = (repeat_distance * repeat_count)
-	for i in range(_anchors.size()):
-		var object: Node3D = _anchors[i]
-		var _position: Vector3 = i * repeat_distance + repeat_distance.normalized() * scroll_speed * _counter
-		var is_oob: bool = _position.length() > max_vector.length()
+	_distance_scrolled += delta * scroll_speed
+	#_distance_scrolled = scroll_speed
+	var max_vector: Vector3 = (repeat_vector * repeat_count)
+	if max_vector.length() > 0 && visible:
+		for i in range(_anchors.size()):
+			var object: Node3D = _anchors[i]
+			var _position: Vector3 = i * repeat_vector + repeat_vector.normalized() * _distance_scrolled
+
+			var div: float = fmod(_position.length(), max_vector.length()) / max_vector.length()
+			var is_positive: bool = _position.normalized().dot(repeat_vector.normalized()) >= 0
+			_position = (div if is_positive else 1 - div) * max_vector
+			#if _position.length() - (repeat_vector.normalized() * scroll_speed * delta).length() < 0:
+			#	refresh_object(i)
 		
-		if is_oob:
-			while (_position.length() > max_vector.length()):
-				_position = (_position - max_vector)
-			if _position.length() < (repeat_distance.normalized() * scroll_speed * delta).length():
-				refresh_object(i)
-		
-		object.position = _position
+			object.position = _position
 		
 func refresh_object(anchor_index: int) -> void:
 	if _reference_nodes.size() > 0:

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dr3m1ued78hmp"]
+
+[ext_resource type="Script" uid="uid://da62spqtylj1d" path="res://scenes/objects/parkourguy/gd_parkour_guy.gd" id="1_exb10"]
+[ext_resource type="PackedScene" uid="uid://bo0hdvki0o2tf" path="res://models/parkour_guy.blend" id="1_kjak5"]
+[ext_resource type="Material" uid="uid://bhsbvtutxqchh" path="res://scenes/objects/parkourguy/mat_parkour_guy.tres" id="2_27rq0"]
+
+[node name="ParkourGuy" type="Node3D" unique_id=2036931827]
+script = ExtResource("1_exb10")
+
+[node name="parkour_guy" parent="." unique_id=203747773 instance=ExtResource("1_kjak5")]
+
+[node name="Cube" parent="parkour_guy" index="0" unique_id=2037722842]
+surface_material_override/0 = ExtResource("2_27rq0")
+
+[editable path="parkour_guy"]
