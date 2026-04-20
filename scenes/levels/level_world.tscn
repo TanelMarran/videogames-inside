@@ -31,7 +31,6 @@ transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0.06563103, 0, 1.579
 
 [node name="Camera3D" type="Camera3D" parent="Node3D2" unique_id=1447894124]
 transform = Transform3D(1.4382888, -0.3235249, 0.51774806, 0, 1.3250751, 0.8279989, -0.6105173, -0.76217693, 1.2197381, 2.5408583, 4.3557897, 5.551522)
-current = true
 fov = 48.81357
 
 [node name="CameraCloseup" type="Camera3D" parent="." unique_id=611371490]
@@ -49,7 +48,7 @@ environment = SubResource("Environment_lhjgr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.014, 0.344, -3.956)
 repeat_vector = Vector3(5.44, 0, 0.001)
 repeat_count = 5
-scroll_speed = -9.28
+scroll_speed = -12.11
 
 [node name="Stage" parent="Looper" unique_id=1031603477 instance=ExtResource("3_cvhj7")]
 visible = false
