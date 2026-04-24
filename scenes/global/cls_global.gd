@@ -8,4 +8,3 @@ func _ready():
 
 func _physics_process(delta):
 	Global.scroll_speed += (1 - Global.scroll_speed) * scroll_reset_speed * delta
-	print(Global.scroll_speed)

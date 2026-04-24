@@ -3,12 +3,16 @@ class_name ParkourGuy extends Node3D
 @export var animation_player: AnimationPlayer
 @export var animation_tree: AnimationTree
 @export var look_at_camera: bool
+@export var surface_material: ShaderMaterial
+@export var mesh: MeshInstance3D
 
+## --
 @export_group("Buffering")
 @export var buffer_time: float = 0.5
 var _previously_held_button_amount: int = 0
 var _pose_update_buffer: int = 0
 
+## --
 @export_group("Acceleration")
 @export var acceleration_measure_size: int = 10
 @export var acceleration_curve: Curve
@@ -20,6 +24,15 @@ var _pose_update_buffer: int = 0
 @onready var _previous_position: Vector3 = global_position
 var _previous_acceleration: Array[Vector3] = []
 var acceleration: Vector3 = Vector3.ZERO
+
+## --
+@export_group("Smear")
+@export_range(0, 100, .1) var smear_strength: float = 1
+@export var smear_curve: Curve
+@export_range(0, 100, .1) var smear_update_frequency: float = 1.0
+var _smear_update_buffer: int = 0
+
+## --
 
 var _blend_up_down = 0.5:
 	set(value):
@@ -50,6 +63,10 @@ var _action_map: Dictionary = {
 	'key_down': 'down'
 }
 
+func _ready():
+	mesh.set_surface_override_material(0, surface_material)
+	mesh.material_override = surface_material
+
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseMotion:
@@ -57,15 +74,19 @@ func _input(event):
 	
 func _process(delta):
 	_pose_update_buffer = max(0, _pose_update_buffer - delta)
+	_smear_update_buffer = max(0, _smear_update_buffer - delta)
 	var key_right: int = (1 if Input.is_action_pressed("key_right") else 0)
 	var key_left: int = (1 if Input.is_action_pressed("key_left") else 0)
 	var key_down: int = (1 if Input.is_action_pressed("key_down") else 0)
 	var key_up: int = (1 if Input.is_action_pressed("key_up") else 0)
 	var total_keys_pressed: float = key_right + key_left + key_up + key_down
 	
-	
 	if (total_keys_pressed != _previously_held_button_amount):
 		_pose_update_buffer = buffer_time
+		
+	if (_smear_update_buffer == 0):
+		update_spear()
+		_smear_update_buffer = smear_update_frequency
 		
 	if (_pose_update_buffer == 0):
 		update_pose()
@@ -83,6 +104,10 @@ func update_pose():
 	_blend_left_right = (((key_right - key_left) + 1) / 2.0) * 2
 	_blend_not_pressed = 1 if total_keys_pressed == 0 else 0
 	_blend_directional_influence = (((((key_right + key_left - key_up - key_down) / (total_keys_pressed))) + 1) / 2) if total_keys_pressed > 0 else .5
+	
+func update_spear():
+	surface_material.set_shader_parameter('movement_direction', acceleration.normalized())
+	surface_material.set_shader_parameter('movement_strength', smear_curve.sample(acceleration.length()) * smear_strength)
 	
 func follow_mouse(event: InputEventMouseMotion):
 	var screen_position: Vector2 = event.position

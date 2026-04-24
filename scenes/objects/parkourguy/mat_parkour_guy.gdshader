@@ -9,10 +9,11 @@ uniform vec3 movement_direction = vec3(0.0, 0.0, 1.0);
 uniform float movement_strength = 1.0;
 
 void vertex() {
-	vec3 offset = TIME * time_scale * vec3(1.0, 0.0, 0.0);
-	float _movement_strength = max(max(0, dot(movement_direction, -NORMAL)), dot(splice_direction, NORMAL)) * movement_strength;
+	vec3 offset = TIME * time_scale * vec3(1.0, .66, .25) - NODE_POSITION_WORLD;
+	
+	float _movement_strength = max(0, dot(movement_direction, -NORMAL)) * movement_strength;
 	vec3 speed_offset = -movement_direction * _movement_strength;
-	VERTEX = floor(((VERTEX + offset) / vec3(snap_size / 10.0))) * vec3(snap_size / 10.0) - offset + speed_offset;
+	VERTEX = floor(((VERTEX - offset) / vec3(snap_size / 10.0))) * vec3(snap_size / 10.0) + offset + speed_offset + dot(splice_direction, NORMAL);
 }
 
 void fragment() {
