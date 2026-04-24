@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dcjs5nauj75oy"]
+
+[ext_resource type="Script" uid="uid://d2671jbcuh6cr" path="res://scenes/global/cls_global.gd" id="1_omo4t"]
+
+[node name="ScnGlobals" type="Node" unique_id=1578802547]
+script = ExtResource("1_omo4t")
+scroll_reset_speed = 1.0

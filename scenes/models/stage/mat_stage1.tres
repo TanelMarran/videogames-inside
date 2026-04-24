@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bx8rfdlkv3gk4" path="res://sprites/spr_background.JPG" id="1_a05xm"]
 
 [resource]
-shading_mode = 0
+shading_mode = 2
 diffuse_mode = 3
 specular_mode = 2
 albedo_texture = ExtResource("1_a05xm")

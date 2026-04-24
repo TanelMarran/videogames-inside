@@ -137,7 +137,9 @@ omni_range = 5.539
 omni_attenuation = 1.376
 
 [node name="ParkourGuy" parent="." unique_id=2036931827 instance=ExtResource("4_ls1yl")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, -0.9097867)
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.08073634, 0, -0.9097867)
+look_at_camera = false
+acceleration_max_speed = 3.0
 
 [editable path="Looper/Stage"]
 [editable path="Looper4/Stage"]

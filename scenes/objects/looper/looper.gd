@@ -76,7 +76,7 @@ func _create_anchors() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_distance_scrolled += delta * scroll_speed
+	_distance_scrolled += delta * scroll_speed * (Global.scroll_speed if !Engine.is_editor_hint() else 1)
 	#_distance_scrolled = scroll_speed
 	var max_vector: Vector3 = (repeat_vector * repeat_count)
 	if max_vector.length() > 0 && visible:

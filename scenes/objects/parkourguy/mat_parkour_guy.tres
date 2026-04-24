@@ -1,5 +1,13 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bhsbvtutxqchh"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhsbvtutxqchh"]
+
+[ext_resource type="Shader" uid="uid://bgim8gsv0cywr" path="res://scenes/objects/parkourguy/mat_parkour_guy.gdshader" id="1_cctvl"]
 
 [resource]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
+render_priority = 0
+shader = ExtResource("1_cctvl")
+shader_parameter/u_color = Color(0, 0, 0, 1)
+shader_parameter/snap_size = 0.059
+shader_parameter/time_scale = 0.005
+shader_parameter/splice_direction = Vector3(1.5, 0, 0)
+shader_parameter/movement_direction = Vector3(0.19, 0, 0.01)
+shader_parameter/movement_strength = 1.0
