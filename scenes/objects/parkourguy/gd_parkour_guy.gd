@@ -87,6 +87,7 @@ func _process(delta):
 	if (_smear_update_buffer == 0):
 		update_spear()
 		_smear_update_buffer = smear_update_frequency
+		_smear_update_buffer = smear_update_frequency
 		
 	if (_pose_update_buffer == 0):
 		update_pose()

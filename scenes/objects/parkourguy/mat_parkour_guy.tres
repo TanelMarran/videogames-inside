@@ -8,6 +8,6 @@ shader = ExtResource("1_cctvl")
 shader_parameter/u_color = Color(0, 0, 0, 1)
 shader_parameter/snap_size = 0.07
 shader_parameter/time_scale = 0.01
-shader_parameter/splice_direction = Vector3(-0.09, -0.03, 0)
+shader_parameter/splice_direction = Vector3(-0.04, -0.08, -0.14)
 shader_parameter/movement_direction = Vector3(0, 0, 9.2)
 shader_parameter/movement_strength = 0.0
