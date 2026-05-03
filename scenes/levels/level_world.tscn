@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bosjbra0esg8d" path="res://scenes/objects/looper/looper.tscn" id="2_6hfjh"]
 [ext_resource type="PackedScene" uid="uid://31efnd0ryv8a" path="res://scenes/models/stage/mdl_stage.tscn" id="3_cvhj7"]
 [ext_resource type="PackedScene" uid="uid://dr3m1ued78hmp" path="res://scenes/objects/parkourguy/scn_parkour_guy.tscn" id="4_ls1yl"]
+[ext_resource type="PackedScene" uid="uid://b7iku80rlbb5w" path="res://scenes/objects/theater/theater_dutch_landscape.tscn" id="5_xx7ag"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s2wkp"]
 size = Vector2(5.5, 5.5)
@@ -44,82 +45,6 @@ visible = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328964358]
 environment = SubResource("Environment_lhjgr")
 
-[node name="Looper" parent="." unique_id=294893303 instance=ExtResource("2_6hfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.014, 0.344, -3.956)
-repeat_vector = Vector3(5.44, 0, 0.001)
-repeat_count = 5
-scroll_speed = -12.11
-
-[node name="Stage" parent="Looper" unique_id=1031603477 instance=ExtResource("3_cvhj7")]
-visible = false
-metadata/reference = true
-
-[node name="Empty_004" parent="Looper/Stage" index="1" unique_id=960427604]
-visible = false
-
-[node name="Empty_005" parent="Looper/Stage" index="2" unique_id=883992261]
-visible = false
-
-[node name="Empty_006" parent="Looper/Stage" index="3" unique_id=956342240]
-visible = false
-
-[node name="Looper4" parent="." unique_id=726186276 instance=ExtResource("2_6hfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.014, 0.424, -4.136)
-repeat_vector = Vector3(5.28, 0, 0.001)
-repeat_count = 5
-scroll_speed = -1.29
-
-[node name="Stage" parent="Looper4" unique_id=1120794578 instance=ExtResource("3_cvhj7")]
-visible = false
-metadata/reference = true
-
-[node name="Empty_001" parent="Looper4/Stage" index="0" unique_id=1523815557]
-visible = false
-
-[node name="Empty_004" parent="Looper4/Stage" index="1" unique_id=960427604]
-visible = false
-
-[node name="Empty_005" parent="Looper4/Stage" index="2" unique_id=883992261]
-visible = false
-
-[node name="Looper3" parent="." unique_id=1921621479 instance=ExtResource("2_6hfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.320894, 0.43412828, -3.9557595)
-repeat_vector = Vector3(5.38, 0, 0.001)
-repeat_count = 5
-scroll_speed = -0.42
-
-[node name="Stage" parent="Looper3" unique_id=2100502560 instance=ExtResource("3_cvhj7")]
-visible = false
-metadata/reference = true
-
-[node name="Empty_001" parent="Looper3/Stage" index="0" unique_id=1523815557]
-visible = false
-
-[node name="Empty_004" parent="Looper3/Stage" index="1" unique_id=960427604]
-visible = false
-
-[node name="Empty_006" parent="Looper3/Stage" index="3" unique_id=956342240]
-visible = false
-
-[node name="Looper2" parent="." unique_id=1023053257 instance=ExtResource("2_6hfjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.437437, 0.43412828, -3.9557595)
-repeat_vector = Vector3(5.44, 0, 0.001)
-repeat_count = 5
-scroll_speed = -0.12
-
-[node name="Stage" parent="Looper2" unique_id=2116580927 instance=ExtResource("3_cvhj7")]
-visible = false
-metadata/reference = true
-
-[node name="Empty_001" parent="Looper2/Stage" index="0" unique_id=1523815557]
-visible = false
-
-[node name="Empty_005" parent="Looper2/Stage" index="2" unique_id=883992261]
-visible = false
-
-[node name="Empty_006" parent="Looper2/Stage" index="3" unique_id=956342240]
-visible = false
-
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=116429321]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7602148, 1.0718417, -6.9614925)
 light_color = Color(0.8762147, 0.23946747, 0.22816241, 1)
@@ -142,7 +67,88 @@ look_at_camera = false
 acceleration_max_speed = 3.0
 smear_strength = 2.0
 
-[editable path="Looper/Stage"]
-[editable path="Looper4/Stage"]
-[editable path="Looper3/Stage"]
-[editable path="Looper2/Stage"]
+[node name="Test" type="Node3D" parent="." unique_id=184695973]
+visible = false
+
+[node name="Looper" parent="Test" unique_id=294893303 instance=ExtResource("2_6hfjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.014, 0.344, -3.956)
+repeat_vector = Vector3(5.44, 0, 0.001)
+repeat_count = 5
+scroll_speed = -12.11
+
+[node name="Stage" parent="Test/Looper" unique_id=1031603477 instance=ExtResource("3_cvhj7")]
+visible = false
+metadata/reference = true
+
+[node name="Empty_004" parent="Test/Looper/Stage" index="1" unique_id=12684705]
+visible = false
+
+[node name="Empty_005" parent="Test/Looper/Stage" index="2" unique_id=866355154]
+visible = false
+
+[node name="Empty_006" parent="Test/Looper/Stage" index="3" unique_id=56127325]
+visible = false
+
+[node name="Looper4" parent="Test" unique_id=726186276 instance=ExtResource("2_6hfjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.014, 0.424, -4.136)
+repeat_vector = Vector3(5.28, 0, 0.001)
+repeat_count = 5
+scroll_speed = -1.29
+
+[node name="Stage" parent="Test/Looper4" unique_id=1120794578 instance=ExtResource("3_cvhj7")]
+visible = false
+metadata/reference = true
+
+[node name="Empty_001" parent="Test/Looper4/Stage" index="0" unique_id=1664971827]
+visible = false
+
+[node name="Empty_004" parent="Test/Looper4/Stage" index="1" unique_id=12684705]
+visible = false
+
+[node name="Empty_005" parent="Test/Looper4/Stage" index="2" unique_id=866355154]
+visible = false
+
+[node name="Looper3" parent="Test" unique_id=1921621479 instance=ExtResource("2_6hfjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.320894, 0.43412828, -3.9557595)
+repeat_vector = Vector3(5.38, 0, 0.001)
+repeat_count = 5
+scroll_speed = -0.42
+
+[node name="Stage" parent="Test/Looper3" unique_id=2100502560 instance=ExtResource("3_cvhj7")]
+visible = false
+metadata/reference = true
+
+[node name="Empty_001" parent="Test/Looper3/Stage" index="0" unique_id=1664971827]
+visible = false
+
+[node name="Empty_004" parent="Test/Looper3/Stage" index="1" unique_id=12684705]
+visible = false
+
+[node name="Empty_006" parent="Test/Looper3/Stage" index="3" unique_id=56127325]
+visible = false
+
+[node name="Looper2" parent="Test" unique_id=1023053257 instance=ExtResource("2_6hfjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.437437, 0.43412828, -3.9557595)
+repeat_vector = Vector3(5.44, 0, 0.001)
+repeat_count = 5
+scroll_speed = -0.12
+
+[node name="Stage" parent="Test/Looper2" unique_id=2116580927 instance=ExtResource("3_cvhj7")]
+visible = false
+metadata/reference = true
+
+[node name="Empty_001" parent="Test/Looper2/Stage" index="0" unique_id=1664971827]
+visible = false
+
+[node name="Empty_005" parent="Test/Looper2/Stage" index="2" unique_id=866355154]
+visible = false
+
+[node name="Empty_006" parent="Test/Looper2/Stage" index="3" unique_id=56127325]
+visible = false
+
+[node name="Theater" parent="." unique_id=1698430642 instance=ExtResource("5_xx7ag")]
+
+[editable path="Test/Looper/Stage"]
+[editable path="Test/Looper4/Stage"]
+[editable path="Test/Looper3/Stage"]
+[editable path="Test/Looper2/Stage"]

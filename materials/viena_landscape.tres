@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d331c7i4miu3i"]
+
+[ext_resource type="Texture2D" uid="uid://bx8rfdlkv3gk4" path="res://sprites/spr_background.JPG" id="1_hcbns"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+albedo_texture = ExtResource("1_hcbns")
+texture_filter = 0
+proximity_fade_distance = 1481.23
+distance_fade_min_distance = 40.55
+distance_fade_max_distance = 0.0
+stencil_flags = 2
+stencil_reference = 2
+stencil_outline_thickness = 0.446

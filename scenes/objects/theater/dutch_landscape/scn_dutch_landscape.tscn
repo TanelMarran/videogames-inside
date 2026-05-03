@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cgj66kam0f3ce"]
+
+[ext_resource type="Script" uid="uid://drnfsf30r4hx3" path="res://scenes/objects/looper/looper.gd" id="1_jjmvf"]
+[ext_resource type="ArrayMesh" uid="uid://xmkymm7fdf8x" path="res://models/stage/import/meshes/dutch_landscape/layer_005.res" id="2_e0nfg"]
+
+[node name="Landscape" type="Node3D" unique_id=644199397]
+
+[node name="Looper" type="Node3D" parent="." unique_id=1613426900]
+script = ExtResource("1_jjmvf")
+repeat_vector = Vector3(5.46, 0, 0)
+scroll_speed = 5.495
+metadata/_custom_type_script = "uid://drnfsf30r4hx3"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Looper" unique_id=1758222574]
+visible = false
+mesh = ExtResource("2_e0nfg")
+metadata/reference = true

@@ -1,13 +1,27 @@
 @tool
-extends Node3D
+class_name Looper extends Node3D
 
+@export_group("Dimensions & Speed")
 @export var repeat_vector: Vector3 = Vector3(1, 0, 0)
 @export var repeat_count: int = 3:
 	set(value):
 		repeat_count = value
 		_create_anchors()
 @export var scroll_speed: float
+			
+var _has_oneshot: bool = false
+
+@export_group("Randomness")
+@export_range(0, 1, 0.01) var prop_chance: float = 1
+@export var oneshot: bool = false:
+	set(value):
+		oneshot = value
+		if oneshot:
+			_has_oneshot = false
 @export var seed: int
+
+@export_group("Debug")
+@export_tool_button('Reload', 'Reload') var reload_button_click: Callable = on_reload_button_click
 
 var _anchors: Array[Node3D] = []
 
@@ -27,6 +41,16 @@ func _ready() -> void:
 	child_entered_tree.connect(_on_child_entered_tree)
 	child_exiting_tree.connect(_on_child_exiting_tree)
 	references_update.connect(_on_references_update)
+	_reference_nodes.assign(get_children().filter( func(item): 
+		var is_3d: bool = item is Node3D && !item.has_meta('anchor') && !item.has_meta('copy_of')
+		if is_3d:
+			item.visible = false
+		return is_3d
+	))
+	_create_anchors()
+
+func on_reload_button_click(): 
+	_reference_nodes = []
 	_reference_nodes.assign(get_children().filter( func(item): 
 		var is_3d: bool = item is Node3D && !item.has_meta('anchor') && !item.has_meta('copy_of')
 		if is_3d:
@@ -72,7 +96,7 @@ func _create_anchors() -> void:
 		
 	if _reference_nodes.size() > 0:
 		for i in range(_anchors.size()):
-			_attach_to_anchor(create_target_copy(_get_random_reference_index()), i)
+			slide_process(i)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -87,12 +111,20 @@ func _process(delta: float) -> void:
 			var div: float = fmod(_position.length(), max_vector.length()) / max_vector.length()
 			var is_positive: bool = _position.normalized().dot(repeat_vector.normalized()) >= 0
 			_position = (div if is_positive else 1 - div) * max_vector
-			#if _position.length() - (repeat_vector.normalized() * scroll_speed * delta).length() < 0:
-			#	refresh_object(i)
+			if _position.length() - (repeat_vector.normalized() * scroll_speed * delta).length() < 0:
+				slide_process(i)
 		
 			object.position = _position
 		
-func refresh_object(anchor_index: int) -> void:
+func slide_process(anchor_index) -> void:
+	if prop_chance == 1 || randf() < prop_chance:
+		if !oneshot:
+			refresh_object(anchor_index)
+		else:
+			_has_oneshot = true
+			refresh_object(anchor_index, _has_oneshot)
+
+func refresh_object(anchor_index: int, no_attach: bool = false) -> void:
 	if _reference_nodes.size() > 0:
 		var anchor: Node3D = _anchors[anchor_index]
 		var ref_index: int = _get_random_reference_index()
@@ -105,7 +137,8 @@ func refresh_object(anchor_index: int) -> void:
 		
 		if anchor.get_child_count() > 0:
 			_detach_from_anchor(anchor.get_child(0))
-		_attach_to_anchor(new_node, anchor_index)
+		if !no_attach:
+			attach_to_anchor(new_node, anchor_index)
 
 func _detach_from_anchor(node: Node3D) -> void:
 	if node:
@@ -113,7 +146,10 @@ func _detach_from_anchor(node: Node3D) -> void:
 		_anchors[node.get_meta('used_by')].remove_child(node)
 		node.remove_meta('used_by')
 	
-func _attach_to_anchor(node: Node3D, anchor_index: int) -> void:
+func attach_to_anchor(node: Node3D, anchor_index: int) -> void:
+	if oneshot && _has_oneshot:
+		return
+	
 	node.visible = true
 	node.set_meta('used_by', anchor_index)
 	_anchors[anchor_index].add_child(node)
@@ -124,6 +160,7 @@ func create_target_copy(reference_index: int) -> Node3D:
 	var node: Node3D = reference_node.duplicate()
 	node.set_meta('copy_of', reference_index)
 	_copy_nodes.append(node)
+	node.visible = true
 	
 	return node
 

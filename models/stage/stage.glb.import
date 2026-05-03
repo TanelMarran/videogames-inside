@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8dcl5s4474y0"
-path="res://.godot/imported/mdl_stage.fbx_Collection.fbx-a9803a668fc0ad122c4361fdbb3ee104.scn"
+uid="uid://bs25pvqiuxcxj"
+path="res://.godot/imported/stage.glb-13809b09a1163ac2d9c6e30216016df0.scn"
 
 [deps]
 
-source_file="res://models/scene/mdl_stage.fbx_Collection.fbx"
-dest_files=["res://.godot/imported/mdl_stage.fbx_Collection.fbx-a9803a668fc0ad122c4361fdbb3ee104.scn"]
+source_file="res://models/stage/stage.glb"
+dest_files=["res://.godot/imported/stage.glb-13809b09a1163ac2d9c6e30216016df0.scn"]
 
 [params]
 
@@ -30,15 +30,13 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path=""
+import_script/path="uid://dcytmi0pd1cmt"
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

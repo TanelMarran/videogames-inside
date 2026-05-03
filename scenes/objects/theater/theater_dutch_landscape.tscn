@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b7iku80rlbb5w"]
+
+[ext_resource type="Script" uid="uid://cosou174dxtsa" path="res://scenes/objects/theater/theater.gd" id="1_hv4an"]
+[ext_resource type="Script" uid="uid://xelgr2b2r53i" path="res://scenes/objects/theater/theater_environment.gd" id="2_hkrks"]
+[ext_resource type="Script" uid="uid://drnfsf30r4hx3" path="res://scenes/objects/looper/looper.gd" id="3_bw46w"]
+[ext_resource type="PackedScene" uid="uid://b2uv0m3h0wwe7" path="res://models/importer_test/mdl_dutch_landscape.glb" id="4_mnuoo"]
+
+[sub_resource type="Resource" id="Resource_bw46w"]
+script = ExtResource("2_hkrks")
+metadata/_custom_type_script = "uid://xelgr2b2r53i"
+
+[node name="Theater" type="Node3D" unique_id=1698430642]
+script = ExtResource("1_hv4an")
+environment = SubResource("Resource_bw46w")
+
+[node name="Looper" type="Node3D" parent="." unique_id=182546984]
+script = ExtResource("3_bw46w")
+repeat_vector = Vector3(4.42, 0, 0)
+scroll_speed = 12.88
+metadata/_custom_type_script = "uid://drnfsf30r4hx3"
+
+[node name="mdl_dutch_landscape" parent="Looper" unique_id=427015791 instance=ExtResource("4_mnuoo")]
+visible = false
+metadata/reference = true
+
+[editable path="Looper/mdl_dutch_landscape"]
