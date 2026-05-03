@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://puv4i0ikrmfo"]
+
+[ext_resource type="PackedScene" uid="uid://csuf3ejw55bgf" path="res://models/stage/_import_scn_stage.tscn" id="1_cjhyg"]
+
+[node name="Root" unique_id=818264897 instance=ExtResource("1_cjhyg")]
+
+[node name="Viena Landscape" parent="Meshes" parent_id_path=PackedInt32Array(386207770) index="0" unique_id=612327098]
+visible = false
+
+[node name="mesh_Layer" parent="Meshes/Viena Landscape/Layer" parent_id_path=PackedInt32Array(909620060) index="0" unique_id=1553275827]
+visible = false
+metadata/reference = true
+
+[node name="mesh_Layer_001" parent="Meshes/Viena Landscape/Layer_001" parent_id_path=PackedInt32Array(207759760) index="0" unique_id=1863029798]
+visible = false
+metadata/reference = true
+
+[node name="mesh_Layer_002" parent="Meshes/Viena Landscape/Layer_002" parent_id_path=PackedInt32Array(670956331) index="0" unique_id=1192520268]
+visible = false
+metadata/reference = true
+
+[node name="mesh_Layer_003" parent="Meshes/Viena Landscape/Layer_003" parent_id_path=PackedInt32Array(1651909371) index="0" unique_id=408162328]
+visible = false
+metadata/reference = true
+
+[node name="Dutch Landscape" parent="Meshes" parent_id_path=PackedInt32Array(386207770) index="1" unique_id=5108718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.178735, 0, 0)
+
+[node name="Layer_005" parent="Meshes/Dutch Landscape" index="0" unique_id=1542091913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8222046)
+repeat_vector = Vector3(5.415, 0, 0)
+repeat_count = 5
+relative_scroll_speed = -5.3
+
+[node name="mesh_Layer_005" parent="Meshes/Dutch Landscape/Layer_005" index="0" unique_id=1358793182]
+visible = false
+metadata/reference = true
+
+[node name="Plane_003" parent="Meshes/Dutch Landscape" index="1" unique_id=2074542927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.193, 0.454)
+repeat_vector = Vector3(5.415, 0, 0)
+repeat_count = 5
+scroll_speed = 3.1
+relative_scroll_speed = -5.085
+
+[node name="mesh_Plane_003" parent="Meshes/Dutch Landscape/Plane_003" index="0" unique_id=2056130005]
+visible = false
+metadata/reference = true
+
+[node name="Plane_004" parent="Meshes/Dutch Landscape" index="2" unique_id=536705780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.192, 0.318)
+repeat_vector = Vector3(5.415, 0, 0)
+repeat_count = 5
+scroll_speed = 1.875
+relative_scroll_speed = -2.81
+
+[node name="mesh_Plane_004" parent="Meshes/Dutch Landscape/Plane_004" index="0" unique_id=448138067]
+visible = false
+metadata/reference = true
+
+[node name="Plane_005" parent="Meshes/Dutch Landscape" index="3" unique_id=1952583614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.441, 0)
+repeat_vector = Vector3(5.415, 0, 0)
+repeat_count = 5
+scroll_speed = 0.315
+relative_scroll_speed = -2.81
+
+[node name="mesh_Plane_005" parent="Meshes/Dutch Landscape/Plane_005" index="0" unique_id=1201113697]
+visible = false
+metadata/reference = true
+
+[node name="Plane_006" parent="Meshes/Dutch Landscape" index="4" unique_id=1444420241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.541, 0)
+repeat_vector = Vector3(5.415, 0, 0)
+repeat_count = 5
+scroll_speed = 0.035
+relative_scroll_speed = -2.81
+
+[node name="mesh_Plane_006" parent="Meshes/Dutch Landscape/Plane_006" index="0" unique_id=1018668704]
+visible = false
+metadata/reference = true
+
+[node name="Plane_007" parent="Meshes/Dutch Landscape" index="5" unique_id=319991371]
+transform = Transform3D(1, 0, 0, 0, 1.185, 0, 0, 0, 1, 0, -0.666, 0)
+repeat_vector = Vector3(5.375, 0, 0)
+repeat_count = 5
+scroll_speed = 0.045
+relative_scroll_speed = -2.81
+
+[node name="mesh_Plane_007" parent="Meshes/Dutch Landscape/Plane_007" index="0" unique_id=1063288939]
+visible = false
+metadata/reference = true

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://31efnd0ryv8a"]
 
-[ext_resource type="PackedScene" uid="uid://c8givuqvy13io" path="res://models/scene/mdl_stage.fbx_Collection_1.fbx" id="1_ikcxo"]
+[ext_resource type="PackedScene" uid="uid://bdvxfgqbqqfm7" path="res://models/.fbx_mdl_car_door.fbx" id="1_ikcxo"]
 [ext_resource type="Material" uid="uid://bvxxr8wwa201s" path="res://scenes/models/stage/mat_stage1.tres" id="2_m7n6h"]
 
 [node name="Stage" unique_id=1031603477 instance=ExtResource("1_ikcxo")]

@@ -2,12 +2,13 @@
 class_name Looper extends Node3D
 
 @export_group("Dimensions & Speed")
-@export var repeat_vector: Vector3 = Vector3(1, 0, 0)
+@export var repeat_vector: Vector3 = Vector3(5, 0, 0)
 @export var repeat_count: int = 3:
 	set(value):
 		repeat_count = value
 		_create_anchors()
-@export var scroll_speed: float
+@export var scroll_speed: float = 5
+@export var relative_scroll_speed: float = 1
 			
 var _has_oneshot: bool = false
 
@@ -100,7 +101,8 @@ func _create_anchors() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_distance_scrolled += delta * scroll_speed * (Global.scroll_speed if !Engine.is_editor_hint() else 1)
+	var _combined_speed: float = scroll_speed * (Global.scroll_speed if !Engine.is_editor_hint() else 1) * (relative_scroll_speed if relative_scroll_speed else 1)
+	_distance_scrolled += delta * _combined_speed
 	#_distance_scrolled = scroll_speed
 	var max_vector: Vector3 = (repeat_vector * repeat_count)
 	if max_vector.length() > 0 && visible:
@@ -111,7 +113,7 @@ func _process(delta: float) -> void:
 			var div: float = fmod(_position.length(), max_vector.length()) / max_vector.length()
 			var is_positive: bool = _position.normalized().dot(repeat_vector.normalized()) >= 0
 			_position = (div if is_positive else 1 - div) * max_vector
-			if _position.length() - (repeat_vector.normalized() * scroll_speed * delta).length() < 0:
+			if _position.length() - (repeat_vector.normalized() * _combined_speed * delta).length() < 0:
 				slide_process(i)
 		
 			object.position = _position

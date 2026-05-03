@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dkpa3h3rogjrh"]
 
-[ext_resource type="Texture2D" uid="uid://bx8rfdlkv3gk4" path="res://sprites/spr_background.JPG" id="1_2bk1x"]
+[ext_resource type="Texture2D" uid="uid://dnacf0ysferli" path="res://sprites/spr_dutch_landscape.jpg" id="1_2bk1x"]
 
 [resource]
 shading_mode = 0

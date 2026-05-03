@@ -4,4 +4,8 @@
 
 [node name="Looper" type="Node3D" unique_id=1023053257]
 script = ExtResource("1_vodd8")
+repeat_vector = Vector3(1, 0, 0)
 repeat_count = 0
+scroll_speed = 0.0
+prop_chance = null
+oneshot = null

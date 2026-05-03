@@ -1,5 +1,65 @@
 [gd_scene format=3 uid="uid://d2l26yyjox61v"]
 
-[ext_resource type="PackedScene" uid="uid://c8givuqvy13io" path="res://models/scene/mdl_stage.fbx_Collection_1.fbx" id="1_4bjq5"]
+[ext_resource type="PackedScene" uid="uid://dr3m1ued78hmp" path="res://scenes/objects/parkourguy/scn_parkour_guy.tscn" id="1_2u0wk"]
+[ext_resource type="PackedScene" uid="uid://bdvxfgqbqqfm7" path="res://models/.fbx_mdl_car_door.fbx" id="3_r03s4"]
 
-[node name="_fbx_mdl_car_door" unique_id=426810238 instance=ExtResource("1_4bjq5")]
+[sub_resource type="QuadMesh" id="QuadMesh_s2wkp"]
+size = Vector2(5.5, 5.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvhj7"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_lhjgr"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.06959755, 0.12625077, 0.25583503, 1)
+ambient_light_energy = 7.51
+
+[node name="World" type="Node3D" unique_id=1649515560]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1632303239]
+transform = Transform3D(0.29844338, 0, 0, 0, -6.7752652e-09, 0.816, 0, -0.155, -3.5668492e-08, -0.16341388, 1.9129741, 1.5279552)
+mesh = SubResource("QuadMesh_s2wkp")
+surface_material_override/0 = SubResource("StandardMaterial3D_cvhj7")
+metadata/reference = true
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=1170207169]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0.06563103, 0, 1.5794443)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D2" unique_id=1447894124]
+transform = Transform3D(1.4382888, -0.3235249, 0.51774806, 0, 1.3250751, 0.8279989, -0.6105173, -0.76217693, 1.2197381, 2.5408583, 4.3557897, 5.551522)
+fov = 48.81357
+
+[node name="CameraCloseup" type="Camera3D" parent="." unique_id=611371490]
+current = true
+fov = 50.0
+
+[node name="_fbx_mdl_car_door" parent="." unique_id=426810238 instance=ExtResource("3_r03s4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.8670913, -0.23348343, 1.3387406)
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1328964358]
+environment = SubResource("Environment_lhjgr")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=116429321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7602148, 1.0718417, -6.9614925)
+light_color = Color(0.8762147, 0.23946747, 0.22816241, 1)
+light_energy = 2.253
+light_indirect_energy = 1.676
+omni_range = 11.014849
+omni_attenuation = 0.437
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=958599450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7653608, -0.26330185, -8.612198)
+light_color = Color(0.83971393, 0.6628909, 0.48255563, 1)
+light_energy = 2.197
+light_indirect_energy = 1.676
+omni_range = 5.539
+omni_attenuation = 1.376
+
+[node name="ParkourGuy" parent="." unique_id=2036931827 instance=ExtResource("1_2u0wk")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -0.08073634, 0, -0.9097867)
+look_at_camera = false
+acceleration_max_speed = 3.0
+smear_strength = 2.0

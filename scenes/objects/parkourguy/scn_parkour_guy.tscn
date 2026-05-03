@@ -83,11 +83,11 @@ acceleration_min_speed = 0.7
 acceleration_max_speed = 2.0
 smear_strength = 57.0
 smear_curve = SubResource("Curve_7eg8d")
-smear_update_frequency = 21.0
+smear_update_frequency = 6.0
 
 [node name="parkour_guy" parent="." unique_id=1830610544 instance=ExtResource("2_27rq0")]
 
-[node name="Skeleton3D" parent="parkour_guy/Armature" parent_id_path=PackedInt32Array(1830610544, 916874831) index="0" unique_id=84076194]
+[node name="Skeleton3D" parent="parkour_guy/Armature" parent_id_path=PackedInt32Array(1830610544, 68784133) index="0" unique_id=494336348]
 bones/0/position = Vector3(9.469892e-09, -0.14583181, -4.5630014e-16)
 bones/0/rotation = Quaternion(0, 3.1534857e-08, -0.23470621, 0.97206634)
 bones/1/rotation = Quaternion(2.220446e-16, -4.440892e-16, 0, 1)
@@ -106,7 +106,7 @@ bones/10/position = Vector3(-0.33979717, 0.038120322, -2.035013e-08)
 bones/10/rotation = Quaternion(0.7054723, 0.04805136, 0.7054723, -0.048051354)
 bones/11/rotation = Quaternion(-0.6722843, -1.02093e-07, 4.0071267e-08, 0.7402931)
 
-[node name="ParkourGuy" parent="parkour_guy/Armature/Skeleton3D" index="0" unique_id=815856318]
+[node name="ParkourGuy" parent="parkour_guy/Armature/Skeleton3D" index="0" unique_id=1651248543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011013895, 0, 0.00021702041)
 material_override = SubResource("ShaderMaterial_tm325")
 surface_material_override/0 = ExtResource("3_exb10")
